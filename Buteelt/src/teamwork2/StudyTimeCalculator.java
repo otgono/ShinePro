@@ -22,9 +22,7 @@ public class StudyTimeCalculator {
         // Суралцсан цаг олох
         long period1TotalStudyTime = period1.calculateTotalStudyTime();
         long period2TotalStudyTime = period2.calculateTotalStudyTime();
-        
-        System.out.println(period1TotalStudyTime);
-        System.out.println(period2TotalStudyTime);
+
         // 2 хугацаагаа харьцуулах
         if (period1TotalStudyTime > period2TotalStudyTime) {
             System.out.println("1978 их цаг суралцсан.");
