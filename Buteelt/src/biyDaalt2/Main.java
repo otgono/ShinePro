@@ -32,13 +32,9 @@ public class Main {
         int Uni_total_min = UniSubj * times_week * Year;
         
         
-        int extra_hour = 4;
-        int extraSubj = extra_hour * one_hour;
-        int extra_minorSubj = minorSubj+extraSubj;
-        int extra_middleSubj = middleSubj+extraSubj;
-        int extra_highSubj = highSubj+extraSubj;
-        
-        int fullWeek = (Year / 7) - 1;
+        int fullWeek = (Year / 7) - 1;  // 1978=32 1978=32 1979=32 1980=30 1981=30 82=31 83=30 84=32 85=31 86=31 87=30 88=31 == 
+        int interestedSubj = 4 * one_hour;
+        int interestedTotal = interestedSubj * fullWeek;
  
         DefaultTableModel model = new DefaultTableModel();
         model.addColumn("Он");
@@ -54,18 +50,20 @@ public class Main {
         model.addColumn("Хич.н минут(1-5)");
         model.addColumn("Хич.н минут(6)");
         model.addColumn("7 хон.хэдэн удаа"); 
+        model.addColumn("Нийт Сонирхсон");
         model.addColumn("Нийт Цаг");
+        
         model.addColumn("Үйлдвэрлэлийн дадлага");
         
-        Object[] row1 = {"1978-1981","Сурагч","1-3",1981-1978,amralt,Year,fullWeek,minorSubjHour,minorSubjHour,one_hour,minorSubj,minorSubj,times_week,minor_total_min/60};
-        Object[] row2 = {"1981-1986","Сурагч","4-8",1986-1981,amralt,Year,fullWeek,middleSubjHour,middleSubjHourTwo,one_hour,middleSubj,middleSubj2,times_week,middle_total_min/60};
-        Object[] row3 = {"1986-1988","Сурагч","9-10",1988-1986,amralt,Year,fullWeek,highSubjHour,highSubjHour,one_hour,highSubj,highSubj,times_week,high_total_min/60};
-        Object[] row4 = {"1988-1993","Оюутан","I-V",1993-1988,amralt,Year,fullWeek,UniSubjHour,UniSubjHour,par,UniSubj,UniSubj,times_week,Uni_total_min/60};
-        Object[] row5 = {"","","","","","","","","","","","","",(Uni_total_min+minor_total_min+middle_total_min+high_total_min)/60};
-        Object[] row6 = {"1978-1981","Сурагч","1-3",1981-1978,amralt,Year,minorSubjHour,minorSubjHour,one_hour,extra_minorSubj,extra_minorSubj,times_week,TotalMin(extra_minorSubj,times_week,Year)/60};
-        Object[] row7 = {"1981-1986","Сурагч","4-8",1986-1981,amralt,Year,middleSubjHour,minorSubjHour,one_hour,extra_middleSubj,extra_middleSubj,times_week,TotalMin(extra_middleSubj,times_week,Year)/60};
-        Object[] row8 = {"1986-1988","Сурагч","9-10",1988-1986,amralt,Year,highSubjHour,minorSubjHour,one_hour,extra_highSubj,extra_highSubj,times_week,TotalMin(extra_highSubj,times_week,Year)/60};
-        Object[] row9 = {"","","","","","","","","","","","",((TotalMin(extra_minorSubj,times_week,Year)+TotalMin(extra_middleSubj,times_week,Year)+TotalMin(extra_highSubj,times_week,Year))/60)-65};
+        Object[] row1 = {"1978-1981","Сурагч","1-3",1981-1978,amralt,Year,"",minorSubjHour,minorSubjHour,one_hour,minorSubj,minorSubj,times_week,"",minor_total_min/60,};
+        Object[] row2 = {"1981-1986","Сурагч","4-8",1986-1981,amralt,Year,38+38+38+38+38,middleSubjHour,middleSubjHourTwo,one_hour,middleSubj,middleSubj2,times_week,interestedTotal,(middle_total_min/60) + interestedTotal};
+        Object[] row3 = {"1986-1988","Сурагч","9-10",1988-1986,amralt,Year,"",highSubjHour,highSubjHour,one_hour,highSubj,highSubj,times_week,"",high_total_min/60,};
+        Object[] row4 = {"1988-1993","Оюутан","I-V",1993-1988,amralt,Year,"",UniSubjHour,UniSubjHour,par,UniSubj,UniSubj,times_week,"",Uni_total_min/60};
+        Object[] row5 = {"","","","","","","","","","","","","","",((Uni_total_min/60)+(minor_total_min/60)+((middle_total_min/60) + interestedTotal)+(high_total_min)/60)};
+        Object[] row6 = {"2006-2011","Сурагч","1-5",2011-2006,amralt,Year,"",4,0,30,4*30,0,5,"",(5*273)*2};
+        Object[] row7 = {"2011-2018","Сурагч","6-12",2018-2011,amralt,Year,422,6,0,35,6*35,0,5,"",(7*273)*2};
+        
+       // Object[] row9 = {"","","","","","","","","","","","","","",(};
         model.addRow(row1);
         model.addRow(row2);
         model.addRow(row3); 
@@ -73,8 +71,8 @@ public class Main {
         model.addRow(row5);
         model.addRow(row6);
         model.addRow(row7);
-        model.addRow(row8);
-        model.addRow(row9);
+      //  model.addRow(row8);
+       // model.addRow(row9);
         JTable table = new JTable(model);
         JScrollPane scrollPane = new JScrollPane(table);
 
