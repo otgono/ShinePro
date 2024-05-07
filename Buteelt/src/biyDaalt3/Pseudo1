@@ -1,0 +1,24 @@
+// Data Structures
+List Ажилтан
+List ШилжүүлсэнАжилтан
+
+// Functions
+Function Ажилтанг шилжүүлэх(Ажилтан)
+
+  For давталт
+    If Ажилтны ажилласан жил 5-аас бага бол
+      Тухайн ажилтны мэдээллийг "ШилжүүлсэнАжилтан"-д онооно
+
+Function Ажилтанг(filePath, employees)
+  Open file for writing at filePath with BufferedWriter
+  For each employee (emp) in employees
+    Write line to file: emp.name + "," + emp.id + "," + emp.age + "," + emp.workingYears
+  Close BufferedWriter
+  **Handle any IOException during writing (e.g., print error message)**
+
+// Main Program
+employees = new empty List
+; Add new Employee objects with name, ID, age, and workingYears to employees (This section is currently empty)
+transferredEmployees = transferEmployees(employees)
+writeEmployeesToFile("Darkhan.txt", transferredEmployees)
+writeEmployeesToFile("Ulaanbaatar.txt", employees)
