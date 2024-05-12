@@ -203,10 +203,6 @@ public class Main{
           totalSep2 += daysUntilPreviousMonday(1977+i,6);
             
         }
-        
-        
-        
-        
     	final int amralt = 30 + 31 + 31;
     	final int Year = 365 - amralt;
     	final int times_week = 6;
@@ -339,11 +335,11 @@ public class Main{
     public static long daysUntilPreviousMonday(int year, int month) {
         LocalDate date = LocalDate.of(year, month, 1);
         DayOfWeek currentDayOfWeek = date.getDayOfWeek();
-        // Calculate the difference in days between the current day and Monday
+   
         int daysUntilMonday = currentDayOfWeek.compareTo(DayOfWeek.MONDAY);
-        // Subtract daysUntilMonday from the 1st of the month to find the previous Monday
+
         LocalDate previousMonday = date.minusDays(daysUntilMonday);
-        // Calculate the number of days between the 1st of the month and the previous Monday
+  
         return java.time.temporal.ChronoUnit.DAYS.between(previousMonday, date);
     }
 }

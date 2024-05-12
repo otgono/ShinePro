@@ -1,24 +1,33 @@
+Ажилтан{
+  ID
+  Нэр
+  Нас 
+  Ажилласан жил
+}
 // Data Structures
 List Ажилтан
-List ШилжүүлсэнАжилтан
+List ШилжүүлэхАжилтан
+List ҮлдсэнАжилтан
 
 // Functions
-Function Ажилтанг шилжүүлэх(Ажилтан)
+Function Өгөгдлийг шилжүүлэхэд бэлэн болгох(Ажилтан)
 
-  For давталт
+  For (ажилтан бүрийн хувьд)
     If Ажилтны ажилласан жил 5-аас бага бол
-      Тухайн ажилтны мэдээллийг "ШилжүүлсэнАжилтан"-д онооно
+      Тухайн ажилтны мэдээллийг "ШилжүүлэхАжилтан"-д онооно
+    else
+      "ҮлдсэнАжилтан"-д ажилтанг онооно.
 
-Function Ажилтанг(filePath, employees)
-  Open file for writing at filePath with BufferedWriter
-  For each employee (emp) in employees
-    Write line to file: emp.name + "," + emp.id + "," + emp.age + "," + emp.workingYears
-  Close BufferedWriter
-  **Handle any IOException during writing (e.g., print error message)**
-
-// Main Program
-employees = new empty List
-; Add new Employee objects with name, ID, age, and workingYears to employees (This section is currently empty)
-transferredEmployees = transferEmployees(employees)
-writeEmployeesToFile("Darkhan.txt", transferredEmployees)
-writeEmployeesToFile("Ulaanbaatar.txt", employees)
+  return ШилжүүлэхАжилтан
+  
+Function Ажилтангийн Мэдээллийг шилжүүлэх(Файл, ШилжүүлэхАжилтан)
+  Try(){
+  For each employee (emp) in Ажилтан
+   Файл руу бичих: emp.нэр + "," + emp.id + "," + emp.нас + "," + emp.Ажилласан жил
+ }
+ catch{
+  Алдаа гарсан тохиолдолд алдааны мессеж
+ }
+ 
+ 
+ 
