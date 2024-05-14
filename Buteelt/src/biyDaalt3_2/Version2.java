@@ -42,10 +42,11 @@ public class Version2 {
         employees.add(new Employee("Aлимаа", "B102", 25, 2));
         employees.add(new Employee("Өсөхөө", "B103", 35, 1));
         employees.add(new Employee("Өнөө", "B104", 28, 4));
-        employees.add(new Employee("Nyo", "B105", 40, 6));
-        employees.add(new Employee("VERSION 1","0",0,0));
+        employees.add(new Employee("", "B105", 40, 6));
+        employees.add(new Employee("VERSION 2","0",0,0));
 
 
+        
 
         writeEmployeesToFile("/Users/macbookpro15/git/repository5/Buteelt/src/biyDaalt3/Ulaanbaatar.txt", employees);
         List<Employee> ulnEmployees = readEmployeesFromFile("/Users/macbookpro15/git/repository5/Buteelt/src/biyDaalt3/Ulaanbaatar.txt");
